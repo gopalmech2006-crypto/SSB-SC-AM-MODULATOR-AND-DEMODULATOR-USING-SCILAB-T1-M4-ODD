@@ -57,6 +57,59 @@ Plot the message signal, carrier signal, SSBSC modulated signal, and the recover
 * If any Error, correct it in code and execute again.
 * Verify the generated waveform using Tabulation and Model Waveform.
 
+## PROGRAM
+am=6.9;
+
+fm=431;
+
+ac=13.8;
+
+fc=4310;
+
+fs=43100;
+
+t=0:1/fs:2/fm;
+
+em1=amcos(23.14fmt);
+
+subplot(4,1,1);
+
+plot(t,em1);
+
+em2=amsin(23.14fmt);
+
+ec1=accos(23.14fct);
+
+ec2=acsin(23.14fct);
+
+subplot(4,1,2);
+
+plot(t,ec1);
+
+eam1=ac*(1+(em1/ac)).cos(23.14fct);
+
+eam2=ac*(1-(em1/ac)).cos(23.14fct);
+
+edsbsc1=eam1-eam2;
+
+eam3=ac*(1+(em2/ac)).sin(23.14fct);
+
+eam4=ac*(1-(em2/ac)).sin(23.14fct);
+
+edsbsc2=eam3-eam4;
+
+elsb=edsbsc1+edsbsc2;
+
+subplot(4,1,3);
+
+plot(t,elsb);
+
+eusb=edsbsc1-edsbsc2;
+
+subplot(4,1,4);
+
+plot(t,eusb);
+
 ---
 
 ## TABULATION
